@@ -1,122 +1,76 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SALVAD CAFÉ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>SALVAD CAFÉ</title>
 
-    body{
-      width:100vw;
-      height:100vh;
-      overflow:hidden;
-      background:black;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-family:Arial, sans-serif;
-    }
+<style>
 
-    .container{
-      position:relative;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      background:black;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+}
 
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to top,
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.10)
-      );
-      pointer-events:none;
-    }
+.container{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    background:#000;
+}
 
-    .logo{
-      position:absolute;
-      top:40px;
-      left:50%;
-      transform:translateX(-50%);
-      color:white;
-      text-align:center;
-      z-index:10;
-    }
+/* VIDEO VERTICAL MOSTRADO EN TV MONTADO VERTICALMENTE */
+video{
+    position:absolute;
+    top:50%;
+    left:50%;
 
-    .logo h1{
-      font-size:3rem;
-      letter-spacing:8px;
-      font-weight:300;
-    }
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
 
-    .logo p{
-      margin-top:10px;
-      color:#d4a64f;
-      letter-spacing:4px;
-      font-size:1rem;
-    }
+    width:100vh;
+    height:100vw;
 
-    .footer{
-      position:absolute;
-      bottom:40px;
-      width:100%;
-      text-align:center;
-      color:white;
-      font-size:1.2rem;
-      letter-spacing:3px;
-      z-index:10;
-    }
+    object-fit:cover;
+}
 
-    @media (max-width:768px){
-      .logo h1{
-        font-size:2rem;
-      }
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.10);
+    pointer-events:none;
+}
 
-      .footer{
-        font-size:0.9rem;
-      }
-    }
-  </style>
+</style>
+
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- VIDEO -->
-    <video autoplay muted loop playsinline>
-      <source src="video.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
+```
+<video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+</video>
 
-    <!-- OSCURECER SUAVEMENTE -->
-    <div class="overlay"></div>
+<div class="overlay"></div>
+```
 
-    <!-- LOGO / TEXTO -->
-    <div class="logo">
-    </div>
-
-    <!-- MENSAJE INFERIOR -->
-    <div class="footer">
-      SABOR • PASIÓN • MOMENTOS
-    </div>
-
-  </div>
+</div>
 
 </body>
 </html>
+
