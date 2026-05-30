@@ -1,62 +1,31 @@
 <!DOCTYPE html>
-
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALVAD CAFÉ</title>
-
-```
+<meta charset="UTF-8">
+<title>Prueba YouTube TV</title>
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+}
 
-    html, body{
-        width:100%;
-        height:100%;
-        overflow:hidden;
-        background:#000;
-    }
-
-    .container{
-        position:fixed;
-        inset:0;
-        overflow:hidden;
-        background:#000;
-    }
-
-    video{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 </style>
-```
-
 </head>
-
 <body>
 
-```
-<div class="container">
-
-    <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto">
-        <source src="video.mp4" type="video/mp4">
-        Tu navegador no soporta video HTML5.
-    </video>
-
-</div>
-```
+<iframe
+    src="https://www.youtube.com/embed/df3JeXVWYWA?autoplay=1&mute=1"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+</iframe>
 
 </body>
 </html>
