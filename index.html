@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Salvad Café</title>
+<title>SALVAD CAFÉ</title>
 
 <style>
 
@@ -24,15 +24,11 @@ body{
 
 .slide{
     position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-
+    inset:0;
+    background:#000;
     opacity:0;
     visibility:hidden;
-
-    transition:opacity .8s ease;
+    transition:opacity 0.8s ease;
 }
 
 .slide.active{
@@ -43,17 +39,27 @@ body{
 video,
 img{
     position:absolute;
-    top:0;
-    left:0;
+    top:50%;
+    left:50%;
 
-    width:100%;
-    height:100%;
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+
+    width:100vh;
+    height:100vw;
 
     object-fit:cover;
 }
 
-</style>
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.05);
+    pointer-events:none;
+}
 
+</style>
 </head>
 
 <body>
@@ -71,6 +77,8 @@ img{
 
     </video>
 
+    <div class="overlay"></div>
+
 </div>
 
 <div id="imageSlide" class="slide">
@@ -79,35 +87,41 @@ img{
         src="prom_votaciones.png"
         alt="Promoción Salvad Café">
 
+    <div class="overlay"></div>
+
 </div>
 
 <script>
 
-const videoSlide = document.getElementById("videoSlide");
-const imageSlide = document.getElementById("imageSlide");
-const video = document.getElementById("promoVideo");
+const videoSlide = document.getElementById('videoSlide');
+const imageSlide = document.getElementById('imageSlide');
+const video = document.getElementById('promoVideo');
 
 function mostrarImagen() {
 
-    videoSlide.classList.remove("active");
-    imageSlide.classList.add("active");
+    videoSlide.classList.remove('active');
+    imageSlide.classList.add('active');
 
     setTimeout(() => {
 
-        imageSlide.classList.remove("active");
-        videoSlide.classList.add("active");
+        imageSlide.classList.remove('active');
+        videoSlide.classList.add('active');
 
         video.currentTime = 0;
 
-        video.play().catch(err => {
-            console.log(err);
+        video.play().catch(error => {
+            console.log(error);
         });
 
     }, 15000);
 
 }
 
-video.addEventListener("ended", mostrarImagen);
+video.addEventListener('ended', mostrarImagen);
+
+video.play().catch(error => {
+    console.log(error);
+});
 
 </script>
 
