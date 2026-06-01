@@ -80,40 +80,78 @@ img{
     <div class="overlay"></div>
 
 </div>
+<!DOCTYPE html>
 
-<script>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALVAD CAFÉ</title>
 
-const videoSlide = document.getElementById('videoSlide');
-const imageSlide = document.getElementById('imageSlide');
-const video = document.getElementById('promoVideo');
+```
+<style>
 
-function mostrarImagen() {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    videoSlide.classList.remove('active');
-    imageSlide.classList.add('active');
+    html,
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
+    }
 
-    setTimeout(() => {
+    .container {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: #000;
+    }
 
-        imageSlide.classList.remove('active');
-        videoSlide.classList.add('active');
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
 
-        video.currentTime = 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(90deg);
 
-        video.play().catch(error => {
-            console.log(error);
-        });
+        width: 100vh;
+        height: 100vw;
 
-    }, 15000);
+        object-fit: cover;
+    }
 
-}
+</style>
+```
 
-video.addEventListener('ended', mostrarImagen);
+</head>
 
-video.play().catch(error => {
-    console.log(error);
-});
+<body>
 
-</script>
+```
+<div class="container">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline>
+
+        <source src="video.mp4" type="video/mp4">
+
+        Tu navegador no soporta video HTML5.
+
+    </video>
+
+</div>
+```
 
 </body>
 </html>
